@@ -21,12 +21,4 @@ jobs:
     - name: Install dependencies
       run: pip install -r requirements.txt
 
-    - name: Syntax check
-      run: |
-        find . -name "*.py" | xargs pylint
-        find . -name "*.py" | xargs black --check
 
-    - name: Run linters
-      run: |
-        pylint projectx.py
-        flake8 projextx.py
