@@ -1,0 +1,26 @@
+name: Deployment
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: SSH into Droplet and deploy
+      uses: appleboy/ssh-action@master
+      with:
+        host: 161.35.226.120
+        username: root
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        port: 22
+        script: |
+          cd /snap/lxd/20326
+          git pull origin main
+          # Add commands to restart your Python script or application
