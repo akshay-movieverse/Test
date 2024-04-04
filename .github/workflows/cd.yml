@@ -21,6 +21,6 @@ jobs:
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         port: 22
         script: |
-          cd /snap/lxd/20326
+          cd root/snap/lxd/ptest
           git pull origin main
           # Add commands to restart your Python script or application
